@@ -92,6 +92,21 @@ namespace DataStructuresAndAlgorithms.DataStructures {
       return head;
     }
 
+    /// <summary>
+    /// Reverse the list.
+    /// </summary>
+    public void Reverse() {
+      QNode<T>? cur = head;
+      QNode<T>? curHead = null;
+      while (cur != null) {
+        QNode<T>? next = cur.Next;
+        cur.Next = curHead;
+        curHead = cur;
+        head = curHead;
+        cur = next;
+      }
+    }
+
     public override string ToString() {
       QNode<T>? cur = head;
       string ret = "[";

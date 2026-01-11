@@ -12,6 +12,10 @@ namespace DataStructuresAndAlgorithms {
       Console.WriteLine("Data has been insterted in the linked list.");
       Console.WriteLine($"Data: {testList.ToString()}");
 
+      Console.WriteLine("Reversing the list...");
+      testList.Reverse();
+      Console.WriteLine($"Data: {testList.ToString()}");
+
       Console.WriteLine($"Contains value 'Last': {testList.Contains("Last")}");
       Console.WriteLine($"Contains value 'Middle': {testList.Contains("Middle")}");
       Console.WriteLine($"Contains value 'First': {testList.Contains("First")}");
