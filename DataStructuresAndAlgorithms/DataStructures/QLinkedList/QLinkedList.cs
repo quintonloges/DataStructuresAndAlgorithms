@@ -4,9 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataStructuresAndAlgorithms.DataStructures {
-  internal class QLinkedList<T> {
+namespace DataStructuresAndAlgorithms.DataStructures.QLinkedList {
+  internal partial class QLinkedList<T> {
     private QNode<T>? head;
+
+    public QLinkedList() {}
+
+    private QLinkedList(QNode<T> head) {
+      this.head = head;
+    }
 
     /// <summary>
     /// Pushes new data to the front of the list.
@@ -105,6 +111,61 @@ namespace DataStructuresAndAlgorithms.DataStructures {
         head = curHead;
         cur = next;
       }
+    }
+
+    /// <summary>
+    /// Return the last node of the list.
+    /// </summary>
+    /// <returns>The node at the end of the list.</returns>
+    public QNode<T>? GetTail() {
+      QNode<T>? cur = head;
+      while (cur != null && cur.Next != null) {
+        cur = cur.Next;
+      }
+      return cur;
+    }
+
+    /// <summary>
+    /// Partitions this list into 2 lists.
+    /// </summary>
+    /// <param name="beginPos">Where to begin the new partition.</param>
+    /// <param name="length">How many elements to place in the new partition.</param>
+    /// <returns>A new partition of the set removed this list.</returns>
+    /// <exception cref="IndexOutOfRangeException">Thrown if the given partition exceeds the length of this partition.</exception>
+    public QLinkedList<T> Partition(int beginPos, int length) {
+      int counter = 0;
+      QNode<T>? cur = head;
+      QNode<T>? preCur = null;
+      QNode<T>? partitionedHead = null;
+      bool success = false;
+      while (cur != null) {
+        if (counter < beginPos) {
+          preCur = cur;
+        }
+        if (counter == beginPos) {
+          partitionedHead = cur;
+        }
+        if (counter == beginPos + length - 1) {
+          QNode<T>? next = cur.Next;
+          cur.Next = null;
+          counter++;
+          cur = next;
+          if (preCur == null) {
+            head = cur;
+          } else {
+            preCur.Next = cur;
+          }
+          success = true;
+          break;
+        }
+        counter++;
+        cur = cur.Next;
+      }
+      if (!success) {
+        throw new IndexOutOfRangeException("The partition could not be completed.");
+      }
+      QLinkedList<T> ret = new QLinkedList<T>(partitionedHead!);
+      return ret;
     }
 
     public override string ToString() {

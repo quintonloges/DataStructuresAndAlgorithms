@@ -1,4 +1,4 @@
-﻿using DataStructuresAndAlgorithms.DataStructures;
+﻿using DataStructuresAndAlgorithms.DataStructures.QLinkedList;
 
 namespace DataStructuresAndAlgorithms {
   internal class Program {
@@ -39,6 +39,23 @@ namespace DataStructuresAndAlgorithms {
       QNode<string>? peeked = testList.Peek();
       Console.WriteLine($"Value of peeked node: {peeked?.Value ?? "Not found"}");
       Console.WriteLine($"Data: {testList.ToString()}");
+
+      Console.WriteLine("Evaluating List Sorting...");
+      QLinkedList<int> listSortTester = new QLinkedList<int>();
+      listSortTester.Push(5);
+      listSortTester.Push(2);
+      listSortTester.Push(9);
+      listSortTester.Push(12);
+      listSortTester.Push(6);
+      listSortTester.Push(4);
+      listSortTester.Push(7);
+      Console.WriteLine($"Current Data: {listSortTester.ToString()}");
+      listSortTester.QuickSort();
+      Console.WriteLine($"After QuickSort Data: {listSortTester.ToString()}");
+      QLinkedList<int> newPartition = listSortTester.Partition(2, 2);
+      Console.WriteLine($"New Partition: {newPartition.ToString()}");
+      Console.WriteLine($"Previous Partition: {listSortTester.ToString()}");
+
 
       Console.ReadKey();
     }
