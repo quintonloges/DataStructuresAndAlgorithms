@@ -50,6 +50,10 @@ namespace DataStructuresAndAlgorithms {
       listSortTester.Push(4);
       listSortTester.Push(7);
       Console.WriteLine($"Current Data: {listSortTester.ToString()}");
+      listSortTester.MergeSort();
+      Console.WriteLine($"After MergeSort Data: {listSortTester.ToString()}");
+      listSortTester.Reverse();
+      Console.WriteLine($"Reversing Data: {listSortTester.ToString()}");
       listSortTester.QuickSort();
       Console.WriteLine($"After QuickSort Data: {listSortTester.ToString()}");
       QLinkedList<int> newPartition = listSortTester.Partition(2, 2);
