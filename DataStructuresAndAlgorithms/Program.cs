@@ -1,4 +1,4 @@
-﻿using DataStructuresAndAlgorithms.DataStructures.QLinkedList;
+﻿using Loges.DataStructuresAndAlgorithms.DataStructures.QLinkedList;
 
 namespace DataStructuresAndAlgorithms {
   internal class Program {
@@ -60,6 +60,7 @@ namespace DataStructuresAndAlgorithms {
       Console.WriteLine($"New Partition: {newPartition.ToString()}");
       Console.WriteLine($"Previous Partition: {listSortTester.ToString()}");
 
+      // TODO: Add testing of Asynchronous and Parallel Code
 
       Console.ReadKey();
     }

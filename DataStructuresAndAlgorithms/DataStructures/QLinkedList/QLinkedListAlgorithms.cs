@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataStructuresAndAlgorithms.DataStructures.QLinkedList {
+namespace Loges.DataStructuresAndAlgorithms.DataStructures.QLinkedList {
   internal partial class QLinkedList<T> {
     public void QuickSort() {
       QNode<T>? tail = GetTail();
